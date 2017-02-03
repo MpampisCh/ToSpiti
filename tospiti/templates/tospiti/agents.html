@@ -1,0 +1,47 @@
+{% extends 'tospiti/base.html' %}
+
+{% block body %}
+
+    <div class="row1">
+        {% for agent in all_agents %}
+            <div class="col-xs-6 col-sm-6 col-md-6" style="left: 5mm">
+            <div class="container">
+                <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-6">
+                    <div class="well well-sm">
+                        <div class="row">
+                            <div class="col-sm-6 col-md-4">
+                                <img src="{{ agent.picture.url }}" alt="" class="img-rounded img-responsive" />
+                            </div>
+                            <div class="col-sm-6 col-md-8">
+                                <h4>{{ agent.getFullName }}</h4>
+                                <p/>
+                                <i class="glyphicon glyphicon-envelope"></i><a> {{ agent.email }}</a>
+                                <p/>
+                                <i class="glyphicon glyphicon-earphone"></i><a> {{ agent.phonenumber }}</a>
+                                <p/>
+                        <!-- Split button -->
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-primary">Social</button>
+                                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                        <span class="caret"></span><span class="sr-only">Social</span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="https://twitter.com">Twitter</a></li>
+                                        <li><a href="https://plus.google.com">Facebook</a></li>
+                                        <li><a href="https://www.facebook.com">Instagram</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="https://www.instagram.com/">Google +</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'tospiti/base.html' %}
+{% block title %}All pictures{% endblock %}
+
+
+{% block body %}
+    {% for prop_picture in all_pictures %}
+    <div class="row1">
+    <div class="form-row">
+        <div class="col-sm-6 col-md-6 col-lg-3" style="left: 5mm">
+            <div class="thumbnail">
+                <div class="caption">
+                    <h1>{{ prop_picture.id_prop_pic}}</h1>
+                    <img src="{{   prop_picture.picture.url }} "width="250cm"/>
+                    <p>...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    {% if error_message %}
+        <p><strong>{{ error_message }}</strong></p>
+    {% endif %}
+    </div>
+{% endblock %}

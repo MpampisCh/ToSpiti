@@ -1,0 +1,22 @@
+{% extends 'tospiti/base.html' %}
+
+{% block body %}
+
+    <div class="row1">
+        {% for property in all_properties %}
+          <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3" style="left: 5mm">
+            <div class="thumbnail">
+              <div class="caption">
+                  <img src="{{ MEDIA_URL }}{{ property.pictures.all.0.picture }}" style="width: 150px ; height: 150px; object-fit: cover"/>
+                  <h4>{{ property.prop_category }} προς {{ property.prop_genre }}</h4>
+                  <h5>{{ property.country }} - {{ property.city }}</h5>
+                  <p>{{ property.squaremeters }}τ.μ. | {{ property.bedrooms }} υπνοδωμάτια | {{ property.bathrooms }} μπάνια</p>
+                  <p>Αγγελία από {{ property.agent }}</p>
+                  <p><a href="{% url 'tospiti:detail' property.id_prop %}" class="btn btn-primary" role="button">περισσότερα</a></p>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+        </div>
+
+{% endblock %}

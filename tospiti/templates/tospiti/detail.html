@@ -1,0 +1,94 @@
+{% extends 'tospiti/base.html' %}
+{% block title %}Property Details{% endblock %}
+
+
+{% block body %}
+    <div class="row1">
+    <div class="form-row">
+        <div class="col-md-8" style="left: 5mm">
+            <div class="thumbnail">
+                <div class="caption">
+                    <h3>{{ property.prop_category }} προς {{ property.prop_genre }}, {{ property.city }}</h3>
+                    <h5 style="color:red">{{ property.price|floatformat:2 }} &#8364; , {{ property.squaremeters }} τ.μ.</h5>
+                    <div class="container" style="padding-top: 5px">
+                        <div class="row portfolio">
+                            <div class="col-sm-4 col-md-4">
+                                <div class="thumbnail">
+                                    <img class="img-responsive" src="{{ MEDIA_URL }}{{ property.pictures.all.0.picture }}" alt="" data-toggle="modal" data-target="#myModal">
+                                    <figcaption style="font-style: italic; font-size: smaller">Για να δείτε το σπίτι πατήστε επάνω στν εικόνα</figcaption>
+                                </div>
+                            </div>
+                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            {% for picture in property.pictures.all %}
+                                                <img class="img-responsive" src="{{ picture.picture.url }}" alt="The awesome description">
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="">
+                        <table class="table table-striped">
+                            <tbody>
+                            <tr>
+                                <td>Νομός / Χώρα</td>
+                                <td>{{ property.region }} / {{ property.country }}</td>
+                            </tr>
+                            <tr>
+                                <td>Διεύθυνση / Πόλη</td>
+                                <td>{{ property.address }} / {{ property.city }}</td>
+                            </tr>
+                            <tr>
+                                <td>Δωμάτια</td>
+                                <td>{{ property.rooms }}</td>
+                            </tr>
+                            <tr>
+                                <td>Υπνοδωμάτια</td>
+                                <td>{{ property.bedrooms }}</td>
+                            </tr>
+                            <tr>
+                                <td>Μπάνια</td>
+                                <td>{{ property.bathrooms }}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <p></p>
+
+                    <div class="">
+                        <div class="panel panel-default">
+                            <div class="panel-heading"><b>Περιγραφή</b></div>
+                            <div class="panel-body">{{ property.description }}</div>
+                        </div>
+                    </div>
+
+                    <div class="">
+                        <div class="panel panel-default">
+                            <div class="panel-heading"><b>Επιπλέον χαρακτηριστηκά</b></div>
+                            <div class="panel-body">
+                                {% for prop_facility in property.prop_facilities.all %}
+                                    {{ prop_facility.facility.description }} <br/>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% if error_message %}
+        <p><strong>{{ error_message }}</strong></p>
+    {% endif %}
+    </div>
+{% endblock %}

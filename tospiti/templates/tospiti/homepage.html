@@ -1,0 +1,74 @@
+{% extends 'tospiti/base.html' %}
+
+{% block body %}
+
+    <!-- First Container Carousel-->
+    <div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#bs-carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#bs-carousel" data-slide-to="1"></li>
+            <li data-target="#bs-carousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="item slides active">
+                <div class="overlay"></div>
+                <div class="slide-1"></div>
+                <div class="hero">
+                    <hgroup>
+                        <h1>tospiti</h1>
+                        <h3>Βρισκεις παντα αυτο που ψαχνεις</h3>
+                    </hgroup>
+                    <a href="{% url 'tospiti:index' %}" class="btn btn-hero btn-lg" role="button">Δειτε ολα τα ακινητα</a>
+                </div>
+            </div>
+            <div class="item slides">
+                <div class="overlay"></div>
+                <div class="slide-2"></div>
+                <div class="hero">
+                    <hgroup>
+                        <h1>tospiti</h1>
+                        <h3>Ψαξε αναμεσα σε χιλιαδες επιλογες απο ενοικιαζομενα σπιτια και διαμερισματα</h3>
+                    </hgroup>
+                    <a href="{% url 'tospiti:index' %}" class="btn btn-hero btn-lg" role="button">Δειτε ολα τα ακινητα</a>
+                </div>
+            </div>
+            <div class="item slides">
+                <div class="overlay"></div>
+                <div class="slide-3"></div>
+                <div class="hero">
+                    <hgroup>
+                        <h1>tospiti</h1>
+                        <h3>Ενα ανετο σπιτι ειναι σπουδαια πηγη ευτυχιας</h3>
+                    </hgroup>
+                    <a href="{% url 'tospiti:index' %}" class="btn btn-hero btn-lg" role="button">Δειτε ολα τα ακινητα</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Second Container -->
+    <div class="container-fluid bg-4 text-center">
+        <h3 class="margin" style="font-family: 'Satisfy', serif;">Τι είναι tospiti</h3>
+        <p>Το tospiti είναι ένας χώρος στο διαδίκτυο στον οποίο τα μεσιτικά γραφεία και οι ιδιώτες μπορούν να βάζουν αγγελίες για πωλήσεις ή ενοικιάσεις ακινήτων. Οι αγγελίες μπορούν να συνοδεύονται από φωτογραφίες και λεπτομερείς χάρτες της περιοχής όπου βρίσκονται τα ακίνητα. </p>
+        <p>Οι χρήστες μπορούν να αναζητήσουν και να βρουν σπίτια, διαμερίσματα, μονοκατοικίες, βίλες, εξοχικά, χώρους γραφείου και οποιοδήποτε άλλο είδος ακινήτου. Οι ιδιώτες μπορούν επίσης να ζητήσουν την εκτίμηση του ακινήτου τους, υπηρεσία η οποία παρέχεται δωρεάν απο τους μεσίτες μας.</p>
+        <br><br/>
+        <a href="#" class="btn btn-default btn-lg">Ποιοί είμαστε</a>
+        <p></p>
+    </div>
+    <!-- Third Container (εμφάνιση των 8 τελευταίων εγγραφών) ΕΠΑΝΑΛΗΨΗ ΤΟΥ INDEX.HTML-->
+    <div class="container-fluid bg-1 text-center">
+        <h3 class="margin" style="font-family: 'Satisfy', serif;">Τελευταίες αγγελίες</h3><br>
+        <div class="row2" {% include "tospiti/index.html" %}></div>
+    </div>
+
+    <!-- ford Container (εμφάνιση τους συνεργαζόμενους μεσίτες)-->
+    <div class="container-fluid bg-3 ">
+        <h3 class="margin text-center" style="font-family: 'Satisfy', serif;">Μεσίτες με τους οποίους συνεργαζόμαστε</h3><br>
+        <div class="row2" {% include "tospiti/agents.html" %}></div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="container-fluid bg-4 text-center">
+          <p>Made By <a href="#">Χαραλαμπίδης</a> και <a href="#">Βουρδόγλου</a></p>
+        </footer>
+
+{% endblock %}

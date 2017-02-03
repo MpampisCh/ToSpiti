@@ -1,0 +1,43 @@
+body{
+    background: white url("images/background.png");
+}
+
+.navbar{
+    border-radius: 0;
+}
+
+.navbar-brand{
+    font-size: xx-large;
+    font-family: 'Satisfy', cursive;
+}
+
+.row{
+    margin: 0;
+}
+
+.row1{
+    margin-top: 100px;
+}
+
+.row2{
+    margin-top: -100px;
+}
+
+
+.bg-1 {
+    background-color: #1abc9c; /* Green */
+    color: #ffffff;
+}
+.bg-2 {
+    background-color: #474e5d; /* Dark Blue */
+    color: #ffffff;
+}
+.bg-3 {
+    background-color: #ffffff; /* White */
+    color: #555555;
+}
+.bg-4 {
+    background-color: #2f2f2f; /* Black Gray */
+    color: #fff;
+}
+
